@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 
 .body_survey{
 width: 1440px;
@@ -67,4 +69,37 @@ background-color: #F9F9F9;
     cursor: pointer;
     margin-left: 300px;
     margin-top: 20px;
+  }
+
+
+  .survey_close{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+
+  }
+  .survey_close h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+
+  }
+  .survey_label{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color:#6B7280;
+    font-size: 14px;
+
+  }
+  .survey_close--btn{
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    border: none;
+    color: #6B7280;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    /* background-color: #FF6600; */
   }

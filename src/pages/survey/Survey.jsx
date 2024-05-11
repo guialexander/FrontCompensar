@@ -1,4 +1,3 @@
-import React from 'react';
 import './survey.css';
 import { useNavigate } from 'react-router-dom';
 import Date_component from '../../components/date_component/Date_component';
@@ -7,6 +6,12 @@ const Survey = () => {
 
 
   const navigate = useNavigate();
+
+  const handleClose = ()=>{
+    alert("clse windows")
+
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert("Enviando test")
@@ -19,17 +24,21 @@ const Survey = () => {
     <div className="body_survey">
         <div className="container_survey">
           <div className="date_component">
-        <h1>Encuesta</h1>
-        <label>
+            <div className="survey_close">
+            <h1>Encuesta</h1>
+            <button onClick={handleClose} className='survey_close--btn'>X</button>
+
+            </div>
+           <label className='survey_label'>
               Fecha
             </label>
         <Date_component/>
         </div>
         <div className="container_survey-questions">
-        <span>Pregunta 1</span>
+        <span className='survey_label'>Pregunta 1</span>
           <div className="container_survey-question">
 
-            <label>
+            <label >
               <input type="radio" name="question1" value="a"/>
               A
             </label>
@@ -49,7 +58,7 @@ const Survey = () => {
       </div>
 
       <div className="container_survey-questions">
-        <span>Pregunta 2</span>
+        <span className='survey_label'>Pregunta 2 </span>
           <div className="container_survey-question">
 
             <label>
@@ -73,7 +82,7 @@ const Survey = () => {
 
 
       <div className="container_survey-questions">
-        <span>Pregunta 3</span>
+        <span className='survey_label'>Pregunta 3</span>
           <div className="container_survey-question">
 
             <label>
@@ -97,7 +106,7 @@ const Survey = () => {
 
 
       <div className="container_survey-questions">
-        <span>Pregunta 4</span>
+        <span className='survey_label'>Pregunta 4</span>
           <div className="container_survey-question">
 
             <label>
