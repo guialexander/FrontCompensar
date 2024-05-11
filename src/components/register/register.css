@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+.container__login--form {
+    width: 369px;
+    height: 543.12px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border-color: black;
+    border-width: 2px;
+    border-style: dashed; */
+    border-radius: 8px;
+
+  }
+  .container__login--form h1{
+ font-family: 'Poppins', sans-serif;
+ font-weight: 500;
+  }
+
+  .container__login--input {
+    font-weight: 400;
+    font-size: 15px;
+    width: 356px;
+    height: 62px;
+    margin-top: 30px;
+    height:62px;
+    line-height: 22.5px;
+    background-color: #F3F4F6;
+    border: none;
+    outline: none;
+
+  }
+
+  input::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #1F2937;
+    font-weight: 500;
+
+  }
+
+  .container__login--button {
+    width: 369px;
+    height: 59px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: #FF6600;
+    color: #F9F9F9;
+    border: none;
+    padding: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .container__login--pass {
+    color: #B0B0B0;
+    margin-top: 20px;
+  }
+  .container__login--fire {
+    margin-top: 40px;
+     text-decoration: none;
+
+
+  }
+  .container__login--a {
+    color: #B5B5B5;
+    font-size: 16px;
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+
+  }
+  .container__login--button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
