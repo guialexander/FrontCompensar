@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css'
 import redes from '../../../public/redes.png';
-
+import Swal from 'sweetalert2';
+//http://localhost:8080
+const BASE_URL = import.meta.env.VITE_API_URL;
+const url = `${BASE_URL}/auth/local/login`;
 
 const Login = () => {
 
@@ -18,7 +21,41 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         alert("Enviando test")
-        navigate('/survey');
+        try {
+            const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+          };
+
+          const response = await fetch(url, options);
+          const data = await response.json();
+
+          if(response.status === 200){
+          localStorage.setItem('dataUser', JSON.stringify(data));
+          Swal.fire({
+            icon: 'info',
+            title: 'Ingresaste correctamente',
+
+          });
+          navigate('/survey');
+          setUser(initialState);
+        } else{
+          Swal.fire({
+            icon: 'info',
+            title: 'Error de Contraseña ó email',
+            text: 'Intenta Nuevamente.',
+          });
+          navigate('/');
+        }
+
+
+        } catch (error) {
+          console.log(error);
+        }
+
 
     }
     const handleChange = (event) => {
@@ -27,7 +64,7 @@ const Login = () => {
           ...user,
           [name]: value,
         });
-        console.log(user)
+        //console.log(user)
       };
 
 
