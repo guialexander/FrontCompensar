@@ -40,16 +40,29 @@ se activa el botón de enviar, cuando estén seleccionados todas las preguntas.
 ### Para probar la funcionalidad de la aplicación, sigue estos pasos:
 
 
-Descargar archivo .zip adjunto, a la máquina local. Tambien se puede descargar el proyecto del repositorio : https://github.com/guialexander/FrontCompensar o clonar en la pc local(si se clona pasar al paso 3.)
-Descomprimir el archivo
-Abrir una terminal, ingresar a la carpeta FrontPruebaTecnicaCompensar
-Ejecuta npm install para instalar todas las dependencias del proyecto.
-Inicia la aplicación ejecutando npm run dev (Nota: debe estar corriendo el servidor que se explica en el manual del backend) 
-ingresar al servidor que indica vite:
+**1.** Descargar archivo .zip adjunto, a la máquina local. Tambien se puede descargar el proyecto del repositorio :
+
+ https://github.com/guialexander/FrontCompensar o clonar en la pc local(si se clona pasar al paso 3.)
+**2.** Descomprimir el archivo
+**3.** Abrir una terminal, ingresar a la carpeta FrontPruebaTecnicaCompensar
+**4.** Ejecuta npm install para instalar todas las dependencias del proyecto.
+**5.** Crear un file en la raíz llamado .env e ingresar las variables de entorno:
+
+
+VITE_API_URL=http://localhost:8080
+![image](https://github.com/guialexander/FrontCompensar/assets/71296562/da5aecaf-3116-4962-8f1c-763424fa62a0)
+
+
+**6.** Inicia la aplicación ejecutando npm run dev (Nota: debe estar corriendo el servidor que se explica en el manual del backend) 
+**7.** ingresar al servidor que indica vite:
+
 ejemplo:
 
-Accede a las diferentes páginas de la aplicación (Registro, Inicio de Sesión, Encuesta) desde tu navegador.
-Realiza pruebas de registro, inicio de sesión y completado de encuesta para asegurarte de que la aplicación funcione como se espera.
+
+![image](https://github.com/guialexander/FrontCompensar/assets/71296562/a2172317-d927-4d24-a097-698fb2fce3e3)
+
+**8.** Accede a las diferentes páginas de la aplicación (Registro, Inicio de Sesión, Encuesta) desde tu navegador.
+**9.** Realiza pruebas de registro, inicio de sesión y completado de encuesta para asegurarte de que la aplicación funcione como se espera.
 
 
 
