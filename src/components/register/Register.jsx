@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './register.css';
@@ -26,6 +26,7 @@ const Register = () => {
 
     const [user, setUser] = useState(initialState);
     const [confirmPasword, setConfirmPasword] = useState(initialconfirm);
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState({});
 
     const handleChangepassword = (event) => {
@@ -50,7 +51,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       const isValid = validateForm();
-      console.log(isValid);
+      //console.log(isValid);
       if (isValid) {
         try {
             const options = {
