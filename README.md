@@ -1,4 +1,4 @@
-# Prueba Técnica - Fronend
+# Prueba Técnica - Frontend
 
 ### Construido con:
 
