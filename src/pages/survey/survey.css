@@ -103,3 +103,8 @@ background-color: #F9F9F9;
     font-weight: 600;
     /* background-color: #FF6600; */
   }
+
+  .container__enviar--button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

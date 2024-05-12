@@ -1,21 +1,77 @@
 import './survey.css';
 import { useNavigate } from 'react-router-dom';
-import Date_component from '../../components/date_component/Date_component';
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import Swal from 'sweetalert2';
 
 const Survey = () => {
 
+  //http://localhost:8080/api/surveys
+ const BASE_URL = import.meta.env.VITE_API_URL;
+ const url = `${BASE_URL}/api/surveys`;
+  const [btnActive,setBtnActive]=useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [questions, setQuestion] = useState({
+    question1: '',
+    question2: '',
+    question3: '',
+    question4: '',
+  });
 
   const navigate = useNavigate();
 
-  const handleClose = ()=>{
-    alert("clse windows")
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const datesurvey = startDate.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    });
+    //console.log(name, value);
+    setQuestion(prevQuestions => {
+      const updatedQuestions = {
+        ...prevQuestions,
+        [name]: value,
+        datesurvey: datesurvey
+      };
+      validationquestions(updatedQuestions);
+      return updatedQuestions;
+    });
+  };
 
+  const handleClose = ()=>{
+    navigate('/');
   }
 
+  const validationquestions = (updatedQuestions) => {
+    const allAnswers= Object.values(updatedQuestions).every(question => question !== '');
+    setBtnActive(allAnswers);
+  };
+//submit
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Enviando test")
+    try {
+      const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(questions),
+    };
+
+    const response = await fetch(url, options);
+    const data = await response.json();
+    console.log(data);
+    Swal.fire({
+      icon: 'info',
+      title: 'Creación del Encuesta OK',
+      text: 'Se realiza la creación de la encuesta ok',
+    });
     navigate('/');
+  } catch (error) {
+    console.log(error);
+  }
 
 }
 
@@ -32,26 +88,29 @@ const Survey = () => {
            <label className='survey_label'>
               Fecha
             </label>
-        <Date_component/>
+            <DatePicker selected={startDate}
+             onChange={(date) => setStartDate(date)}
+         />
+
         </div>
         <div className="container_survey-questions">
         <span className='survey_label'>Pregunta 1</span>
           <div className="container_survey-question">
 
             <label >
-              <input type="radio" name="question1" value="a"/>
+              <input type="radio" name="question1" value="a" onChange={handleChange}/>
               A
             </label>
             <label>
-              <input type="radio" name="question1" value="b"/>
+              <input type="radio" name="question1" value="b" onChange={handleChange}/>
               B
             </label>
             <label>
-              <input type="radio" name="question1" value="c"/>
+              <input type="radio" name="question1" value="c" onChange={handleChange}/>
               C
             </label>
             <label>
-              <input type="radio" name="question1" value="d"/>
+              <input type="radio" name="question1" value="d" onChange={handleChange}/>
               D
             </label>
           </div>
@@ -62,19 +121,19 @@ const Survey = () => {
           <div className="container_survey-question">
 
             <label>
-              <input type="radio" name="question2" value="a"/>
+              <input type="radio" name="question2" value="a" onChange={handleChange}/>
               A
             </label>
             <label>
-              <input type="radio" name="question2" value="b"/>
+              <input type="radio" name="question2" value="b" onChange={handleChange}/>
               B
             </label>
             <label>
-              <input type="radio" name="question2" value="c"/>
+              <input type="radio" name="question2" value="c" onChange={handleChange}/>
               C
             </label>
             <label>
-              <input type="radio" name="pquestion2" value="d"/>
+              <input type="radio" name="question2" value="d" onChange={handleChange}/>
               D
             </label>
           </div>
@@ -86,19 +145,19 @@ const Survey = () => {
           <div className="container_survey-question">
 
             <label>
-              <input type="radio" name="question3" value="a"/>
+              <input type="radio" name="question3" value="a" onChange={handleChange}/>
               A
             </label>
             <label>
-              <input type="radio" name="question3" value="b"/>
+              <input type="radio" name="question3" value="b" onChange={handleChange}/>
               B
             </label>
             <label>
-              <input type="radio" name="question3" value="c"/>
+              <input type="radio" name="question3" value="c" onChange={handleChange}/>
               C
             </label>
             <label>
-              <input type="radio" name="question3" value="d"/>
+              <input type="radio" name="question3" value="d" onChange={handleChange}/>
               D
             </label>
           </div>
@@ -110,24 +169,24 @@ const Survey = () => {
           <div className="container_survey-question">
 
             <label>
-              <input type="radio" name="question4" value="a"/>
+              <input type="radio" name="question4" value="a" onChange={handleChange}/>
               A
             </label>
             <label>
-              <input type="radio" name="question4" value="b"/>
+              <input type="radio" name="question4" value="b" onChange={handleChange}/>
               B
             </label>
             <label>
-              <input type="radio" name="question4" value="c"/>
+              <input type="radio" name="question4" value="c" onChange={handleChange}/>
               C
             </label>
             <label>
-              <input type="radio" name="question4" value="d"/>
+              <input type="radio" name="question4" value="d" onChange={handleChange}/>
               D
             </label>
           </div>
       </div>
-      <button type='submit' className='container__enviar--button' onClick={handleSubmit}>
+      <button type='submit' className='container__enviar--button' disabled = {!btnActive} onClick={handleSubmit}>
           Enviar
         </button>
 
