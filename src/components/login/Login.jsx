@@ -20,7 +20,6 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        alert("Enviando test")
         try {
             const options = {
             method: 'POST',
