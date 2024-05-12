@@ -64,9 +64,9 @@ const Survey = () => {
     const data = await response.json();
     console.log(data);
     Swal.fire({
-      icon: 'info',
-      title: 'Creación del Encuesta OK',
-      text: 'Se realiza la creación de la encuesta ok',
+      icon: "success",
+      title: 'Tus respuestas se han guardado de manera correcta',
+
     });
     navigate('/');
   } catch (error) {
